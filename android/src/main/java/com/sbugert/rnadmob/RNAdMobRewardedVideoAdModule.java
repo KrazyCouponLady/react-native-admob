@@ -117,6 +117,11 @@ public class RNAdMobRewardedVideoAdModule extends ReactContextBaseJavaModule imp
     private void sendEvent(String eventName, @Nullable WritableMap params) {
         getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit(eventName, params);
     }
+    
+    @Override
+    public void onRewardedVideoCompleted() {
+        // required to get past javac issues about abstract class...
+    }
 
     @ReactMethod
     public void setAdUnitID(String adUnitID) {
